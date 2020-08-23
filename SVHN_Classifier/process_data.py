@@ -59,7 +59,7 @@ if __name__ == '__main__':
     train_images,valid_images,train_labels,valid_labels,train_mean,train_std = read_mat_file(mat_file_name)
     lab = [np.argmax(i) for i in train_labels]
     class_weights = compute_class_weight('balanced',list(range(10)),lab)
-    print(class_weights)
+    print(class_weights) # Same class weights are used in training 
     save_dict = {'train_images_grayscale':train_images,\
             'valid_images_grayscale':valid_images,\
             'train_one_hot_labels':train_labels,\
