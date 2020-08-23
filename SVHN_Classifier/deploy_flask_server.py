@@ -23,7 +23,6 @@ def process_image():
     # Generate prediction using the model 
     pred = test_on_image(image,sess,input_n,output_n, mean, std)
     pred_val = np.argmax(pred) + 1
-    print(pred,"$$$$$$$444")
 
     return jsonify({'msg': 'success', 'prediction':str(pred_val)})
 
