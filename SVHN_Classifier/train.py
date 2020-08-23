@@ -1,12 +1,12 @@
 import pdb
 import numpy as np
 import tensorflow as tf
-import pdb
 from sklearn.metrics import accuracy_score, confusion_matrix, balanced_accuracy_score
 
 from data_feeder import data_feeder
 from cnn_model import cnn_model
 
+# Created from process_data.py
 data_npy_file = 'SVHN_train_valid_splits_grayscale_colornormalized.npy'
 
 
@@ -51,10 +51,10 @@ class train_a_model():
                 batch_loss = {'train':[],'valid':[]}
             
                 for phase,generator_to_use in zip(['train','valid'],[train_data_gen, valid_data_gen]):
-                    print(100*['#'])
-                    print(100*['#'])
+                    print(100*'#')
+                    print(100*'#')
                     print("Phase:",phase)
-                    print(100*['#'])
+                    print(100*'#')
                     batch = 0
                     for image,labels in generator_to_use:
                         feed_dict = {model_ret['input']:image,\
@@ -95,7 +95,7 @@ class train_a_model():
                     if phase == 'valid': 
                         if epoch_loss < self.min_val_loss:
                             self.min_val_loss = epoch_loss
-                            saver.save(sess,self.model_config['model_dir'])        
+                            saver.save(sess,self.model_config['model_dir']+'svhn_classifier')        
                             with open('Best_confusion_matrix.txt','w') as f:
                                 f.write(str(confusion_mat))
 
@@ -111,7 +111,7 @@ if __name__ == '__main__':
             'pos_weights': np.array([0.52764023, 0.69052669, 0.86425306, 0.98545485, 1.06943431, 1.28689065, 1.30960894, 1.45061881, 1.5673977, 1.4669587]),
             'lr':1e-4,
             'model_dir':'model_save_dir_svhn/',
-            'epochs': 10
+            'epochs': 50
             }
 
     train_obj = train_a_model(model_config, data_npy_file)
