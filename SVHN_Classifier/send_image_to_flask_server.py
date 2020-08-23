@@ -1,7 +1,7 @@
 import requests
 
 def send_image(ip,port,image_name):
-    url = 'http://{}:{}/im_size'.format(ip, port)
+    url = 'http://{}:{}/im_process'.format(ip, port)
     my_img = {'image': open(image_name, 'rb')}
     ret = requests.post(url, files=my_img)
     print(ret.content)
