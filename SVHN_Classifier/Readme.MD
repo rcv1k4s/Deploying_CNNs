@@ -19,5 +19,7 @@ data_feeder.py Module to dynamically yield images, labels through generator to b
 
 train.py Script to train the model using above modules and log per epoch results
 
-
-
+test.py Script to infer on a image, functions to create a frozen graph from model, load the graph and infer on graph and test function using SVHN test dataset
+	
+Dependencies:
+Python-3.6.9, tensorflow-1.14.0, sklearn-0.22.1, numpy-1.18.1, scipt-1.4.1
