@@ -11,8 +11,8 @@ class cnn_model(object):
         self.output_dims = self.model_config['output_dims']
         self.keep_probability = self.model_config['keep_probability']
         self.pos_weights = self.model_config['pos_weights'] 
-        self.input = tf.placeholder(tf.float32,[None,self.image_dims[0],self.image_dims[1],self.image_dims[2]])
-        self.output = tf.placeholder(tf.float32,[None, self.output_dims])
+        self.input = tf.placeholder(tf.float32,[None,self.image_dims[0],self.image_dims[1],self.image_dims[2]],name='input')
+        self.output = tf.placeholder(tf.float32,[None, self.output_dims],name='output')
 
         self.initializer = tf.contrib.layers.xavier_initializer()
     
