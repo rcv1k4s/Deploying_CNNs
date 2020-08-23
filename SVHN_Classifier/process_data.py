@@ -64,8 +64,12 @@ if __name__ == '__main__':
             'valid_images_grayscale':valid_images,\
             'train_one_hot_labels':train_labels,\
             'valid_one_hot_labels':valid_labels,\
-            'train_mean': train_mean,\
-            'train_std': train_std,\
             'class_weights':class_weights,\
             }
     np.save('SVHN_train_valid_splits_grayscale_colornormalized',save_dict)
+    save_dict = {
+            'train_mean': train_mean,\
+            'train_std': train_std,\ 
+            }
+    np.save('train_mean_and_std',save_dict)
+    
