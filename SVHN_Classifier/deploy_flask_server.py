@@ -1,9 +1,12 @@
+import os
 import numpy as np
 from PIL import Image
 from flask import Flask, request, jsonify
 from test import load_graph_and_return_session, test_on_image
 
 app = Flask(__name__)
+
+FLASK_PORT = int(os.environ.get(FLASK_PORT))
 
 # Load required mean and std for inference
 mean_and_std = np.load('train_mean_and_std.npy',allow_pickle=True).item()
@@ -29,4 +32,4 @@ def process_image():
 
 if __name__ == '__main__':
     # Start the server
-    app.run(host='0.0.0.0',port=7718,debug=True)
+    app.run(host='0.0.0.0',port=FLASK_PORT,debug=False)
