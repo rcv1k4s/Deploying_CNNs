@@ -21,8 +21,22 @@ Psuedo code:
 -Use port-forwarding or expose kubectl functionality services to create a gateway point to receive and schedule requests to each pods automatically
 
 ## Create Dockerfile: 
+
+Install docker following instructions from: https://docs.docker.com/get-docker/
+
 File containing docker build configuration and to pull the code. App can be launches using docker following command same docker will be used even in kubernetes:
 
+Build Docker image. Register and create a account in https://hub.docker.com/ and create a repository to push the image to cloud this make the image accessible remote nodes.
+
+Use following commands to build the image from Dockerfile and push it to your repository
+```
+docker build -t dockerim . # docker build -t <tagname> .
+docker tag <tagname>:latest <username>/<imagename>:<version>
+docker push <username>/<imagename>:<version>
+```
+
+
+Command to run a docker
 ```
  docker run -it -e FLASK_PORT=7788 -p 7788:7788 rcv1k4s/deploying_cnns:0.1
 ```
@@ -59,7 +73,7 @@ kubectl apply -f <path to manifest yaml> -n <namespace>
 ```
 kubectl get deployment -n svhnclassifierflaskapp
 ```
-- Forward kubenetes deployment port to host port. This exposes a port specified on the host and request sent to this forwaded port would be automatically redirected to individual nodes.
+- Forward kubenetes deployment port to host port. This exposes a port specified on the host and request sent to this forwarded port would be automatically redirected to individual nodes.
 ```
 kubectl port-forward deployment/svhnclassifier-deploy -n svhnclassifierflaskapp 7788:7788
 kubectl port-forward <entity type/entity name> -n <namespace> <sourceport>:<destinationport>
