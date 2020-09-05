@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: svhnclassifier-deploy
+  labels:
+    app: svhnflaskapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: svhnflaskapp
+  template:
+    metadata:
+      labels:
+        app: svhnflaskapp
+    spec:
+      containers:
+      - name: svhnflaskapp
+        image: rcv1k4s/deploying_cnns:0.1
+        ports:
+        - containerPort: 7788
