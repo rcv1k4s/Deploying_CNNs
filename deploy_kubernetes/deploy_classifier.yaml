@@ -15,7 +15,7 @@ spec:
         app: svhnflaskapp
     spec:
       containers:
-      - name: svhnflaskapp
+      - name: svhnclassifier-deploy
         image: rcv1k4s/deploying_cnns:0.1
         ports:
         - containerPort: 7788
