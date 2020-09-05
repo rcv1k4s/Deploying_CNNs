@@ -6,7 +6,7 @@ from test import load_graph_and_return_session, test_on_image
 
 app = Flask(__name__)
 
-FLASK_PORT = int(os.environ.get(FLASK_PORT))
+FLASK_PORT = int(os.environ.get('FLASK_PORT'))
 
 # Load required mean and std for inference
 mean_and_std = np.load('train_mean_and_std.npy',allow_pickle=True).item()
