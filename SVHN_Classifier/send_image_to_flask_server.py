@@ -8,6 +8,6 @@ def send_image(ip,port,image_name):
 
 if __name__ == '__main__':
     ip = '0.0.0.0'
-    port = 7718
+    port = 7788
     image_name = 'test_input.png'
     send_image(ip,port,image_name)
