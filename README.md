@@ -2,6 +2,20 @@
 
 Contains modules to train a simple CNN model to classify on SVHN dataset using tensorflow and deploy using kubernetes through docker.
 
+## Repo Setup
+
+Dependencies Installation on Ubuntu-20.04
+
+```
+sudo apt install python3 python3-pip -y&&python3 -m pip install --upgrade pip&&python3 -m pip install poetry==1.3.0
+```
+
+Install packages
+
+```
+poetry install -E .dev
+```
+
 ## Repository contains following modules:
 - Train a simple CNN to classify SVHN dataset
 - Create a frozen graph from trained model

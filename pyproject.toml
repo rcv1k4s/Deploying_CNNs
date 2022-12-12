@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "deploying-cnns"
+version = "0.1.0"
+description = "Python Module to train a DL model and deploy."
+authors = ["rv1k4s <vikaschamarthi240@gmail.com>"]
+readme = "README.md"
+packages = [{include = "SVHN_Classifier"}]
+
+
+[tool.poetry.dependencies]
+python = "^3.8"
+numpy = "1.22.3"
+opencv-python-headless = "4.6.0.66"
+scikit-image = "0.19.0"
+scikit-learn = "1.0.1"
+
+[tool.poetry.group.dev.dependencies]
+tensorflow = "2.2.0"
+torch = { url = "https://download.pytorch.org/whl/cpu/torch-1.13.0%2Bcpu-cp38-cp38-linux_x86_64.whl"}
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
